@@ -10,6 +10,18 @@
 
 ---
 
+## 🖼️ 效果预览
+
+<div align="center">
+
+| Retro Terminal | Cyber Grid | Anthropic Editorial |
+|:-:|:-:|:-:|
+| ![Retro Terminal](docs/preview-retro.png) | ![Cyber Grid](docs/preview-cyber.png) | ![Anthropic Editorial](docs/preview-anthropic.png) |
+
+</div>
+
+---
+
 ## ✨ 功能特性
 
 ### 🎨 四大主题视觉系统
