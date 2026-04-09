@@ -58,10 +58,7 @@
 # 1. 安装依赖
 npm install
 
-# 2. 配置 API Key（如需 AI 提示词功能）
-echo "GEMINI_API_KEY=your_key_here" > .env.local
-
-# 3. 启动开发服务器
+# 2. 启动开发服务器
 npm run dev
 ```
 
