@@ -1,0 +1,397 @@
+import { BackgroundPattern, ColorScheme, CoverThemePreset, LayoutStylePreset } from './types';
+
+export const SCHEMES: ColorScheme[] = [
+  { id: 'teal', name: '青蓝科技', accent: '#00e5cc', bg: '#060e1c', glow: 'rgba(0,229,204,0.15)', gradient: 'linear-gradient(135deg, #00e5cc, #0077ff)' },
+  { id: 'anthropic-paper', name: 'Anthropic Paper', accent: '#c86b45', bg: '#efe9df', glow: 'rgba(200,107,69,0.10)', gradient: 'linear-gradient(135deg, #c86b45, #aa5a39)' },
+  { id: 'anthropic-stone', name: 'Stone Editorial', accent: '#8f7a63', bg: '#e6e0d4', glow: 'rgba(143,122,99,0.10)', gradient: 'linear-gradient(135deg, #988066, #7a6550)' },
+  { id: 'anthropic-ink', name: 'Ink Minimal', accent: '#4f4a45', bg: '#ddd8cf', glow: 'rgba(79,74,69,0.09)', gradient: 'linear-gradient(135deg, #615a54, #49433e)' },
+  { id: 'retro-parchment', name: 'Retro Parchment', accent: '#232323', bg: '#f4f2eb', glow: 'rgba(35,35,35,0.08)', gradient: 'linear-gradient(135deg, #2b2b2b, #151515)' },
+  { id: 'retro-ivory', name: 'Retro Ivory', accent: '#2a2927', bg: '#f0ece2', glow: 'rgba(42,41,39,0.08)', gradient: 'linear-gradient(135deg, #353330, #1f1d1b)' },
+  { id: 'retro-mint', name: 'Retro Mint', accent: '#1f3b33', bg: '#e7eee7', glow: 'rgba(31,59,51,0.08)', gradient: 'linear-gradient(135deg, #2a4b42, #173129)' },
+  { id: 'orange', name: '橙红热度', accent: '#ff6b35', bg: '#150a06', glow: 'rgba(255,107,53,0.15)', gradient: 'linear-gradient(135deg, #ff6b35, #ff3d71)' },
+  { id: 'purple', name: '紫色未来', accent: '#a855f7', bg: '#0d0814', glow: 'rgba(168,85,247,0.15)', gradient: 'linear-gradient(135deg, #a855f7, #6366f1)' },
+  { id: 'green', name: '绿色活力', accent: '#22c55e', bg: '#051209', glow: 'rgba(34,197,94,0.15)', gradient: 'linear-gradient(135deg, #22c55e, #059669)' },
+  { id: 'gold', name: '金色商务', accent: '#f59e0b', bg: '#110d02', glow: 'rgba(245,158,11,0.15)', gradient: 'linear-gradient(135deg, #f59e0b, #d97706)' },
+  { id: 'pink', name: '粉红潮流', accent: '#ec4899', bg: '#140610', glow: 'rgba(236,72,153,0.15)', gradient: 'linear-gradient(135deg, #ec4899, #db2777)' },
+  { id: 'crimson', name: '赤红警戒', accent: '#ef4444', bg: '#1a0505', glow: 'rgba(239,68,68,0.15)', gradient: 'linear-gradient(135deg, #ef4444, #b91c1c)' },
+  { id: 'indigo', name: '深邃星空', accent: '#818cf8', bg: '#0f1021', glow: 'rgba(129,140,248,0.15)', gradient: 'linear-gradient(135deg, #818cf8, #4f46e5)' },
+  { id: 'cyan-magenta', name: '幻影赛博', accent: '#06b6d4', bg: '#080c14', glow: 'rgba(232,17,219,0.15)', gradient: 'linear-gradient(135deg, #06b6d4, #d946ef)' },
+  { id: 'lime', name: '酸性黑客', accent: '#bef264', bg: '#0a1200', glow: 'rgba(190,242,100,0.15)', gradient: 'linear-gradient(135deg, #bef264, #84cc16)' },
+  { id: 'silver', name: '钛金机械', accent: '#e5e7eb', bg: '#0f1115', glow: 'rgba(229,231,235,0.10)', gradient: 'linear-gradient(135deg, #e5e7eb, #9ca3af)' },
+  { id: 'lemon', name: '高亮警示', accent: '#fef08a', bg: '#141204', glow: 'rgba(254,240,138,0.15)', gradient: 'linear-gradient(135deg, #fef08a, #eab308)' },
+  // Mac Classic schemes
+  { id: 'mac-cream', name: 'Classic Cream', accent: '#1a1510', bg: '#f0ece3', glow: 'rgba(26,21,16,0.06)', gradient: 'linear-gradient(135deg, #1a1510, #2c2820)' },
+  { id: 'mac-amber', name: 'Warm Amber', accent: '#c17a2a', bg: '#f2ede1', glow: 'rgba(193,122,42,0.08)', gradient: 'linear-gradient(135deg, #c17a2a, #9e6420)' },
+  { id: 'mac-pine', name: 'Forest Pine', accent: '#2d5a3d', bg: '#eaede8', glow: 'rgba(45,90,61,0.08)', gradient: 'linear-gradient(135deg, #2d5a3d, #1d3d28)' },
+  { id: 'mac-slate', name: 'Steel Slate', accent: '#2c3a4a', bg: '#e8ecf0', glow: 'rgba(44,58,74,0.08)', gradient: 'linear-gradient(135deg, #2c3a4a, #1e2a36)' },
+];
+
+export const BACKGROUNDS: BackgroundPattern[] = [
+  { id: 'grid', name: '标准网格', css: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)', size: '24px 24px' },
+  { id: 'dots', name: '点阵矩阵', css: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', size: '16px 16px' },
+  { id: 'lines-h', name: '扫描线', css: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)', size: '100% 6px' },
+  { id: 'cross', name: '十字准星', css: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', size: '32px 32px' },
+  { id: 'diagonal', name: '警戒斜纹', css: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 0, transparent 50%)', size: '12px 12px' },
+  { id: 'noise', name: '微粒噪点', css: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E")`, size: 'auto' },
+  // ── Cyber Grid exclusive backgrounds ──
+  { id: 'hex-grid', name: '六角蜂窝', css: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='60'%3E%3Cpolygon points='17,1 34,10 34,30 17,39 0,30 0,10' fill='none' stroke='rgba(255,255,255,.055)' stroke-width='.9'/%3E%3Cline x1='0' y1='30' x2='17' y2='39' stroke='rgba(255,255,255,.055)' stroke-width='.9'/%3E%3Cline x1='34' y1='30' x2='17' y2='39' stroke='rgba(255,255,255,.055)' stroke-width='.9'/%3E%3Cline x1='17' y1='39' x2='17' y2='60' stroke='rgba(255,255,255,.055)' stroke-width='.9'/%3E%3C/svg%3E")`, size: '35px 60px' },
+  { id: 'circuit', name: '电路板', css: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 20 L45 20 L45 55 L80 55 M20 0 L20 35 L60 35 M60 0 L60 35 M0 60 L30 60 L30 80 M50 0 L50 25 L80 25' fill='none' stroke='rgba(255,255,255,.05)' stroke-width='.9'/%3E%3Ccircle cx='45' cy='20' r='2' fill='rgba(255,255,255,.08)'/%3E%3Ccircle cx='20' cy='35' r='2' fill='rgba(255,255,255,.08)'/%3E%3Ccircle cx='60' cy='35' r='2' fill='rgba(255,255,255,.08)'/%3E%3Ccircle cx='30' cy='60' r='2' fill='rgba(255,255,255,.08)'/%3E%3Ccircle cx='50' cy='25' r='2' fill='rgba(255,255,255,.08)'/%3E%3C/svg%3E")`, size: '80px 80px' },
+  { id: 'wave', name: '干涉波纹', css: 'repeating-linear-gradient(10deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 14px), repeating-linear-gradient(-10deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 14px)', size: 'auto' },
+  { id: 'diamond', name: '菱形切割', css: 'linear-gradient(45deg, rgba(255,255,255,0.055) 1px, transparent 1px), linear-gradient(-45deg, rgba(255,255,255,0.055) 1px, transparent 1px)', size: '28px 28px' },
+  { id: 'data-rain', name: '数据流', css: 'repeating-linear-gradient(90deg, transparent 0px, transparent 3px, rgba(255,255,255,0.04) 3px, rgba(255,255,255,0.04) 4px, transparent 4px, transparent 9px, rgba(255,255,255,0.025) 9px, rgba(255,255,255,0.025) 10px, transparent 10px, transparent 18px)', size: '18px 100%' },
+  { id: 'iso-grid', name: '等距轴测', css: 'linear-gradient(30deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(150deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)', size: '40px 70px' },
+  { id: 'radial-lines', name: '放射扫描', css: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg stroke='rgba(255,255,255,.04)' stroke-width='.8'%3E%3Cline x1='100' y1='100' x2='200' y2='100'/%3E%3Cline x1='100' y1='100' x2='187' y2='150'/%3E%3Cline x1='100' y1='100' x2='150' y2='187'/%3E%3Cline x1='100' y1='100' x2='100' y2='200'/%3E%3Cline x1='100' y1='100' x2='50' y2='187'/%3E%3Cline x1='100' y1='100' x2='13' y2='150'/%3E%3Cline x1='100' y1='100' x2='0' y2='100'/%3E%3Cline x1='100' y1='100' x2='13' y2='50'/%3E%3Cline x1='100' y1='100' x2='50' y2='13'/%3E%3Cline x1='100' y1='100' x2='100' y2='0'/%3E%3Cline x1='100' y1='100' x2='150' y2='13'/%3E%3Cline x1='100' y1='100' x2='187' y2='50'/%3E%3C/g%3E%3C/svg%3E")`, size: '200px 200px' },
+  { id: 'grid-dense', name: '密集微格', css: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)', size: '8px 8px' },
+  { id: 'cross-fine', name: '精细十字', css: 'radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)', size: '16px 16px' },
+  { id: 'paper-fiber', name: '纸纤维', css: 'radial-gradient(rgba(46,40,33,0.12) 0.8px, transparent 0.8px), radial-gradient(rgba(255,255,255,0.32) 0.8px, transparent 0.8px)', size: '8px 8px' },
+  { id: 'linen', name: '亚麻肌理', css: 'linear-gradient(rgba(52,45,38,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(52,45,38,0.12) 1px, transparent 1px)', size: '7px 7px' },
+  { id: 'soft-haze', name: '柔雾', css: 'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.38), transparent 45%), radial-gradient(circle at 80% 65%, rgba(122,106,88,0.2), transparent 42%)', size: 'cover' },
+  { id: 'retro-grid-fine', name: '复古细网格', css: 'linear-gradient(rgba(30,30,30,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(30,30,30,0.08) 1px, transparent 1px)', size: '18px 18px' },
+  { id: 'retro-dash', name: '复古虚线', css: 'repeating-linear-gradient(90deg, rgba(35,35,35,0.16) 0 8px, transparent 8px 16px)', size: '100% 1px' },
+  { id: 'retro-halftone', name: '复古半调', css: 'radial-gradient(rgba(35,35,35,0.16) 0.8px, transparent 0.8px)', size: '10px 10px' },
+  // Mac Classic backgrounds
+  { id: 'mac-clean', name: '纯净无纹', css: 'none', size: 'auto' },
+  { id: 'mac-grain', name: '纸质颗粒', css: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E")`, size: 'auto' },
+  { id: 'mac-lines', name: '稿纸横线', css: 'linear-gradient(rgba(26,21,16,0.06) 1px, transparent 1px)', size: '100% 28px' },
+  { id: 'mac-dots-fine', name: '精细点阵', css: 'radial-gradient(rgba(26,21,16,0.10) 0.6px, transparent 0.6px)', size: '14px 14px' },
+];
+
+const STYLES = {
+  neon: {
+    fontFamily: "'Space Grotesk', 'Noto Sans SC', sans-serif",
+    titleCase: 'uppercase' as const,
+    titleLetterSpacing: 0.04,
+    titleFontWeight: 900,
+    titleShadow: '0 14px 45px rgba(18,24,77,0.55)',
+    textAlign: 'left' as const,
+    subtitleStyle: 'plain' as const,
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: 'rgba(255,255,255,0.62)',
+    subtitleBg: 'rgba(255,255,255,0.12)',
+    subtitleBorder: 'rgba(255,255,255,0.38)',
+    patternOpacity: 0.3,
+    overlayGradient: 'linear-gradient(160deg, rgba(122,146,255,0.22), rgba(58,52,133,0.05) 45%, transparent)',
+    frameStyle: 'neon' as const,
+  },
+  mono: {
+    fontFamily: "'Inter', 'Noto Sans SC', sans-serif",
+    titleCase: 'none' as const,
+    titleLetterSpacing: -0.01,
+    titleFontWeight: 900,
+    titleShadow: 'none',
+    textAlign: 'left' as const,
+    subtitleStyle: 'plain' as const,
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: 'rgba(255,255,255,0.55)',
+    subtitleBg: 'rgba(255,255,255,0.10)',
+    subtitleBorder: 'rgba(255,255,255,0.35)',
+    patternOpacity: 0.28,
+    overlayGradient: 'linear-gradient(180deg, rgba(255,255,255,0.05), transparent 38%)',
+    frameStyle: 'border' as const,
+  },
+  warm: {
+    fontFamily: "'Manrope', 'Noto Sans SC', sans-serif",
+    titleCase: 'none' as const,
+    titleLetterSpacing: 0,
+    titleFontWeight: 900,
+    titleShadow: '0 12px 36px rgba(60,30,10,0.28)',
+    textAlign: 'left' as const,
+    subtitleStyle: 'pill' as const,
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: 'rgba(255,255,255,0.72)',
+    subtitleBg: 'rgba(255,255,255,0.12)',
+    subtitleBorder: 'rgba(255,255,255,0.36)',
+    patternOpacity: 0.3,
+    overlayGradient: 'linear-gradient(160deg, rgba(255,135,66,0.16), transparent 44%, rgba(255,79,0,0.12))',
+    frameStyle: 'none' as const,
+  },
+  editorial: {
+    fontFamily: "'Noto Serif SC', 'Noto Sans SC', serif",
+    titleCase: 'none' as const,
+    titleLetterSpacing: -0.012,
+    titleFontWeight: 700,
+    titleShadow: 'none',
+    textAlign: 'left' as const,
+    subtitleStyle: 'plain' as const,
+    primaryTextColor: '#1f1d1a',
+    secondaryTextColor: '#69645d',
+    subtitleBg: 'rgba(31,29,26,0.06)',
+    subtitleBorder: 'rgba(31,29,26,0.20)',
+    patternOpacity: 0.36,
+    overlayGradient: 'linear-gradient(180deg, rgba(255,255,255,0.12), transparent 40%)',
+    frameStyle: 'none' as const,
+  },
+  impact: {
+    fontFamily: "'Montserrat', 'Noto Sans SC', sans-serif",
+    titleCase: 'uppercase' as const,
+    titleLetterSpacing: 0.06,
+    titleFontWeight: 900,
+    titleShadow: '0 14px 40px rgba(0,25,63,0.55)',
+    textAlign: 'center' as const,
+    subtitleStyle: 'outline' as const,
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: 'rgba(255,255,255,0.85)',
+    subtitleBg: 'rgba(255,255,255,0.12)',
+    subtitleBorder: 'rgba(255,255,255,0.38)',
+    patternOpacity: 0.3,
+    overlayGradient: 'linear-gradient(145deg, rgba(21,71,160,0.22), rgba(0,174,239,0.14) 42%, transparent)',
+    frameStyle: 'border' as const,
+  },
+  // Mac Classic: warm cream + mixed serif/mono typography
+  'mac-classic': {
+    fontFamily: "'Playfair Display', 'Noto Serif SC', serif",
+    titleCase: 'none' as const,
+    titleLetterSpacing: -0.025,
+    titleFontWeight: 700,
+    titleShadow: 'none',
+    textAlign: 'left' as const,
+    subtitleStyle: 'plain' as const,
+    primaryTextColor: '#1a1510',
+    secondaryTextColor: '#4a4540',
+    subtitleBg: 'rgba(26,21,16,0.055)',
+    subtitleBorder: 'rgba(26,21,16,0.18)',
+    patternOpacity: 0.22,
+    overlayGradient: 'radial-gradient(ellipse at 75% 25%, rgba(255,255,255,0.35), transparent 55%)',
+    frameStyle: 'none' as const,
+  },
+};
+
+function theme(
+  id: string,
+  name: string,
+  tagline: string,
+  style: keyof typeof STYLES,
+  defaultSchemeId: string,
+  defaultBgPatternId: string,
+  availableSchemeIds: string[],
+  availableBackgroundIds: string[],
+  line2 = 68
+): CoverThemePreset {
+  return {
+    id,
+    name,
+    tagline,
+    defaultSchemeId,
+    defaultBgPatternId,
+    availableSchemeIds,
+    availableBackgroundIds,
+    defaultFontSizes: { line1: 22, line2, line3: 19 },
+    ...STYLES[style],
+  };
+}
+
+export const THEMES: CoverThemePreset[] = [
+  theme(
+    'cyber',
+    'Cyber Grid',
+    '基础赛博科技风',
+    'neon',
+    'teal',
+    'grid',
+    ['teal', 'orange', 'purple', 'green', 'gold', 'pink', 'crimson', 'indigo', 'cyan-magenta', 'lime', 'silver', 'lemon'],
+    ['grid', 'dots', 'lines-h', 'cross', 'diagonal', 'noise', 'hex-grid', 'circuit', 'wave', 'diamond', 'data-rain', 'iso-grid', 'radial-lines', 'grid-dense', 'cross-fine'],
+    68
+  ),
+  theme(
+    'anthropic',
+    'Anthropic Editorial',
+    '克制排版，理性叙事',
+    'editorial',
+    'anthropic-paper',
+    'paper-fiber',
+    ['anthropic-paper', 'anthropic-stone', 'anthropic-ink'],
+    ['paper-fiber', 'linen', 'soft-haze', 'noise'],
+    60
+  ),
+  theme(
+    'retro-future',
+    'Retro Terminal',
+    '等宽字体，虚线边框，磁带与软盘的年代',
+    'mono',
+    'retro-parchment',
+    'retro-grid-fine',
+    ['retro-parchment', 'retro-ivory', 'retro-mint'],
+    ['retro-grid-fine', 'retro-dash', 'retro-halftone', 'paper-fiber'],
+    62
+  ),
+  theme(
+    'mac-classic',
+    'Mac Classic',
+    '奶油背景，斜体衬线，早期个人电脑时代',
+    'mac-classic',
+    'mac-cream',
+    'mac-grain',
+    ['mac-cream', 'mac-amber', 'mac-pine', 'mac-slate'],
+    ['mac-clean', 'mac-grain', 'mac-lines', 'mac-dots-fine'],
+    68
+  ),
+];
+
+const THEME_FONT_OVERRIDES: Record<string, string> = {
+  cyber: "'Space Grotesk', 'Noto Sans SC', sans-serif",
+  anthropic: "'Noto Serif SC', 'Noto Sans SC', serif",
+  'retro-future': "'Space Mono', 'IBM Plex Mono', 'Noto Sans SC', monospace",
+  'mac-classic': "'Playfair Display', 'Noto Serif SC', serif",
+};
+
+export const THEMES_WITH_FONTS: CoverThemePreset[] = THEMES.map((theme) => ({
+  ...theme,
+  fontFamily: THEME_FONT_OVERRIDES[theme.id] || theme.fontFamily,
+}));
+
+export const LAYOUT_STYLES: LayoutStylePreset[] = [
+  {
+    id: 'left-default',
+    name: '左侧默认',
+    description: '当前风格，信息从左向右阅读',
+    textAlign: 'left',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    contentWidth: '84%',
+    contentOffsetY: 0,
+    lineGapEm: 0.2,
+  },
+  {
+    id: 'center-hero',
+    name: '居中聚焦',
+    description: '标题居中，适合强信息冲击',
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    contentWidth: '88%',
+    contentOffsetY: -2,
+    lineGapEm: 0.25,
+  },
+  {
+    id: 'top-lead',
+    name: '顶部引导',
+    description: '文字整体靠上，底部留出更多空间',
+    textAlign: 'left',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    contentWidth: '84%',
+    contentOffsetY: 6,
+    lineGapEm: 0.22,
+  },
+  {
+    id: 'bottom-impact',
+    name: '底部冲击',
+    description: '文字落在下半区，更像海报封面',
+    textAlign: 'left',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    contentWidth: '86%',
+    contentOffsetY: -4,
+    lineGapEm: 0.22,
+  },
+  {
+    id: 'left-compact',
+    name: '左中紧凑',
+    description: '更紧凑的左侧排版，适合信息密度高',
+    textAlign: 'left',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    contentWidth: '72%',
+    contentOffsetY: 0,
+    lineGapEm: 0.14,
+  },
+];
+
+export const SCHEME_TONES: Record<
+  string,
+  {
+    primaryText: string;
+    secondaryText: string;
+    subtitleBg: string;
+    subtitleBorder: string;
+    marker: string;
+  }
+> = {
+  'anthropic-paper': {
+    primaryText: '#211d19',
+    secondaryText: '#6b6259',
+    subtitleBg: 'rgba(33,29,25,0.06)',
+    subtitleBorder: 'rgba(33,29,25,0.21)',
+    marker: 'rgba(200,107,69,0.33)',
+  },
+  'anthropic-stone': {
+    primaryText: '#2c2721',
+    secondaryText: '#71685e',
+    subtitleBg: 'rgba(44,39,33,0.07)',
+    subtitleBorder: 'rgba(44,39,33,0.23)',
+    marker: 'rgba(143,122,99,0.33)',
+  },
+  'anthropic-ink': {
+    primaryText: '#191613',
+    secondaryText: '#59544f',
+    subtitleBg: 'rgba(25,22,19,0.09)',
+    subtitleBorder: 'rgba(25,22,19,0.26)',
+    marker: 'rgba(79,74,69,0.35)',
+  },
+  'retro-parchment': {
+    primaryText: '#232323',
+    secondaryText: '#4e4b45',
+    subtitleBg: 'rgba(35,35,35,0.06)',
+    subtitleBorder: 'rgba(35,35,35,0.32)',
+    marker: 'rgba(35,35,35,0.26)',
+  },
+  'retro-ivory': {
+    primaryText: '#292723',
+    secondaryText: '#5a554c',
+    subtitleBg: 'rgba(41,39,35,0.06)',
+    subtitleBorder: 'rgba(41,39,35,0.30)',
+    marker: 'rgba(41,39,35,0.24)',
+  },
+  'retro-mint': {
+    primaryText: '#1e2f2a',
+    secondaryText: '#3a5850',
+    subtitleBg: 'rgba(30,47,42,0.07)',
+    subtitleBorder: 'rgba(30,47,42,0.30)',
+    marker: 'rgba(30,47,42,0.24)',
+  },
+  // Mac Classic tones
+  'mac-cream': {
+    primaryText: '#1a1510',
+    secondaryText: '#4a4540',
+    subtitleBg: 'rgba(26,21,16,0.055)',
+    subtitleBorder: 'rgba(26,21,16,0.18)',
+    marker: 'rgba(26,21,16,0.18)',
+  },
+  'mac-amber': {
+    primaryText: '#1a1108',
+    secondaryText: '#5a4a35',
+    subtitleBg: 'rgba(193,122,42,0.08)',
+    subtitleBorder: 'rgba(193,122,42,0.32)',
+    marker: 'rgba(193,122,42,0.25)',
+  },
+  'mac-pine': {
+    primaryText: '#1a2a20',
+    secondaryText: '#3a5545',
+    subtitleBg: 'rgba(45,90,61,0.07)',
+    subtitleBorder: 'rgba(45,90,61,0.28)',
+    marker: 'rgba(45,90,61,0.22)',
+  },
+  'mac-slate': {
+    primaryText: '#1a2230',
+    secondaryText: '#445562',
+    subtitleBg: 'rgba(44,58,74,0.07)',
+    subtitleBorder: 'rgba(44,58,74,0.28)',
+    marker: 'rgba(44,58,74,0.22)',
+  },
+};
+
+export const INITIAL_STATE = {
+  ratio: '4:3' as const,
+  schemeId: 'teal',
+  bgPatternId: 'grid',
+  themeId: 'cyber',
+  layoutStyleId: 'left-default',
+  frameEnabled: true,
+  decorEnabled: true,
+  textureIntensity: 1,
+  elements: [
+    { id: 'line1', type: 'text', content: '运动手环', fontSize: 22, withBorder: false, withMarker: false, withDepth: false, colorRole: 'accent', weight: 'bold' },
+    { id: 'line2', type: 'text', content: '如何判断', fontSize: 64, withBorder: false, withMarker: false, withDepth: false, colorRole: 'primary', weight: 'black' },
+    { id: 'line3', type: 'text', content: '你在睡觉？', fontSize: 18, withBorder: false, withMarker: false, withDepth: false, colorRole: 'muted', weight: 'normal' },
+  ],
+};
