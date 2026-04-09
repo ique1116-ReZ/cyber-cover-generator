@@ -110,10 +110,6 @@ cyber-cover-generator/
 
 ---
 
-## 📝 开发进度
-
-详见 [DEVELOPMENT_PROGRESS.md](./DEVELOPMENT_PROGRESS.md)
-
 ---
 
 <div align="center">
