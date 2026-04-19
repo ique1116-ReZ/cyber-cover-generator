@@ -78,6 +78,28 @@ npm run dev
 
 ---
 
+## 🌐 免费发布成网站
+
+这个项目可以直接发布成静态网站，不需要后端，也不需要用户 `git clone` 到本地。
+
+我已经按 GitHub Pages 的方式准备好了部署配置：
+
+- 生产环境路径指向仓库子路径 `/cyber-cover-generator/`
+- 推送到 `main` 后会自动触发 GitHub Actions 构建并部署
+
+### GitHub Pages 开启方式
+
+1. 打开仓库 `Settings`
+2. 进入 `Pages`
+3. `Source` 选择 `GitHub Actions`
+4. 保持分支为 `main`，之后每次 push 都会自动更新网站
+
+部署成功后，访问地址通常是：
+
+`https://ique1116-rez.github.io/cyber-cover-generator/`
+
+---
+
 ## 🛠️ 技术栈
 
 | 技术 | 用途 |
